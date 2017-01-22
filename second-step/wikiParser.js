@@ -128,7 +128,7 @@ const WikiUpdater = (()=> {
 	});
 	
 	
-	fetch('https://he.wikipedia.org/w/api.php?action=query&meta=tokens&format=json&assert=bot',{
+	fetch('https://he.wikipedia.org/w/api.php?action=query&meta=tokens&format=json',{
 		credentials: 'include'
 	})
 	.then(res=> res.json())
@@ -145,7 +145,7 @@ const WikiUpdater = (()=> {
 				body:InfraStructure.objectToFormData({title:articleTitle,section:sectionId,text:content,token:_token,summary:sectionTitle}),
 				credentials: 'include'
 			};
-			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json&assert=bot&bot=true',fetchDetails)
+			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json',fetchDetails)
 			.then(res=> res.json())
 			.then(res=> {
 					_that._edits.push({revisionId:res.edit.newrevid, title: articleTitle});
@@ -160,7 +160,7 @@ const WikiUpdater = (()=> {
 				body:InfraStructure.objectToFormData({title:articleTitle,text:content,token:_token,summary:summary}),
 				credentials: 'include' 
 			};
-			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json&assert=bot&bot=true',fetchDetails)
+			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json',fetchDetails)
 				.then(res=> res.json())
 				.then(res=> {
 					_that._edits.push({revisionId:res.edit.newrevid, title: articleTitle});
@@ -180,7 +180,7 @@ const WikiUpdater = (()=> {
 				body:InfraStructure.objectToFormData({title:articleTitle,undo:revisionId,token:_token}),
 				credentials: 'include' 
 			};
-			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json&assert=bot&bot=1',fetchDetails)
+			fetch('https://he.wikipedia.org/w/api.php?action=edit&format=json',fetchDetails)
 				.then(res=> res.json())
 				.then(res=> console.log(res));
 		}
