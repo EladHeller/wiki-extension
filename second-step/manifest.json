@@ -1,0 +1,12 @@
+{
+    "name":"wiki extension",
+    "version":"0.1",
+    "manifest_version":2,
+    "content_scripts":[
+        {
+            "matches":["*://www.google.com/*","*://www.google.co.il/*"],
+            "js":["wikiParser.js","inject-script.js"]
+        }
+    ],
+    "permissions":["<all_urls>","storage","unlimited_storage"]
+}
