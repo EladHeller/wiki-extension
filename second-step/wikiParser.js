@@ -1,4 +1,4 @@
-var WikiTemplateParser = (function(){
+﻿var WikiTemplateParser = (function(){
 	'use strict';
 
 	ctor.prototype.updateTamplateFromData = updateTamplateFromData;
